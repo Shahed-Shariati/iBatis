@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sabapardazesh.tejaratipgspringapplication.mapper.TransactionMapper">
+
+  <resultMap id="billTransaction" type="billTransaction">
+
+  </resultMap>
+    <resultMap id="Long" type="Long"></resultMap>
+
+
+    <select id="getPaymentId" parameterType="java.util.HashMap" resultMap="Long">
+        SELECT
+            PAYMENT_ID
+        FROM
+            SIPGS.TB_BILL_TRANSACTION
+        WHERE BILL_NUMBER = #{billNumber}
+          AND
+            BILL_PAYMENT_ID = #{billPaymentId}
+          AND ISO_RESULT_CODE = 0
+    </select>
+
+</mapper>
